@@ -1,0 +1,1 @@
+export const GET_LATEST_TODOLIST = '/v2/5b1378523100004a0078be98';
