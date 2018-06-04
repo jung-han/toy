@@ -386,3 +386,15 @@ html .clear-completed:active {
 .Completed li.active {
   display: none;
 }
+
+.bringBackBtn{
+  cursor: pointer;
+  float: right;
+  border: 1px solid #ccc;
+  padding: 3px;
+  font-size: 15px;
+}
+
+.completedDiv h2{
+  text-align: center;
+}

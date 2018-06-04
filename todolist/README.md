@@ -10,8 +10,11 @@
 
 2. redux를 추가하여 분리한다.
 
-3. 이후
-* react lifecycle
+3. axios + redux-saga 로 api 호출 후 state 갱신 
+
+4. 삭제목록 되살리기
+  * react-route
+
+4. 이후
 * 추가 reducer combine해보기
-* axios + redux-saga 로 api 호출 후 state 갱신
 

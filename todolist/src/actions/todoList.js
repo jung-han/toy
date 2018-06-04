@@ -5,6 +5,7 @@ export const CLEAR_COMPLETED_TODO = 'CLEAR_COMPLETED_TODO';
 export const CHANGE_SHOW_OPTION = 'CHANGE_SHOW_OPTION';
 export const INIT_TODOLIST = 'INIT_TODOLIST';
 export const FETCH_TODOLIST  = 'FETCH_TODOLIST';
+export const BRING_BACK_TODO = 'BRING_BACK_TODO';
 
 export function fetchTodoList() {
   return {type: FETCH_TODOLIST};
@@ -32,4 +33,8 @@ export function changeShowOption(option) {
 
 export function initTodoList(todosId, todosEntity) {
   return {type:INIT_TODOLIST, todosId, todosEntity};
+}
+
+export function bringBackTodo(id) {
+  return {type: BRING_BACK_TODO, id};
 }

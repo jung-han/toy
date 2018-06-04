@@ -7,8 +7,10 @@ import dotProp from 'dot-prop-immutable';
 import {Link} from 'react-router-dom';
 
 export default class TodoList extends Component {
-  componentDidMount() {
-    this.props.fetchTodoList();
+  componentWillMount() {
+    if(!this.props.isFetchTodoList) {
+      this.props.fetchTodoList();
+    }
   }
   render() {
     return (
@@ -18,7 +20,7 @@ export default class TodoList extends Component {
           <Main />
           <Footer />
         </div> 
-        <Link to='/completedList'>completedList</Link>
+        <Link to='/removedItemList'>completedList</Link>
       </div>
     )
   }
