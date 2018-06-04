@@ -3,7 +3,8 @@ import {
   TOGGLE_TODO,
   DELETE_TODO,
   CLEAR_COMPLETED_TODO,
-  CHANGE_SHOW_OPTION
+  CHANGE_SHOW_OPTION,
+  INIT_TODOLIST
 } from '../actions/todoList';
 import dotProp from 'dot-prop-immutable';
 import _ from 'lodash';
@@ -26,6 +27,7 @@ function addTodo(state, text) {
       isComplete: false
     }
   );
+
   return newState;
 }
 
@@ -33,6 +35,7 @@ function deleteTodo(state, id) {
   const idx = state.todosId.indexOf(id);
   let newState = dotProp.delete(state, `todosEntity.${id}`);
   newState = dotProp.delete(newState, `todosId.${idx}`);
+
   return newState;
 }
 
@@ -54,6 +57,13 @@ function clearCompletedTodos(state) {
   };
 }
 
+function initTodoList(state, todosId, todosEntity) {
+  let newState = dotProp.set(state, 'todosId', todosId);
+  newState = dotProp.set(newState, 'todosEntity', todosEntity);
+
+  return newState;
+}
+
 export default function(state=initialState, action) {
   switch(action.type) {
     case 'ADD_TODO':
@@ -66,6 +76,8 @@ export default function(state=initialState, action) {
       return clearCompletedTodos(state);
     case 'CHANGE_SHOW_OPTION':
       return dotProp.set(state, 'showOption', action.option);
+    case 'INIT_TODOLIST':
+      return initTodoList(state, action.todosId, action.todosEntity);
     default:
       return state;
   }

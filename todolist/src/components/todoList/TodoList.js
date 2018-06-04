@@ -7,6 +7,9 @@ import dotProp from 'dot-prop-immutable';
 import {Link} from 'react-router-dom';
 
 export default class TodoList extends Component {
+  componentDidMount() {
+    this.props.fetchTodoList();
+  }
   render() {
     return (
       <div>
